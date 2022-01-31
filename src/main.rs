@@ -2,7 +2,13 @@ use std::fs::File;
 use std::io::{Read, Result};
 
 
-fn main() -> Result<()> {
+fn main()
+{
+    let secret_word = get_rand_word();
+}
+
+fn get_rand_word() -> Result<&'static str>
+{
     let words_path = "words.txt";
     let mut words_file = File::open(words_path)?;
 
@@ -23,5 +29,5 @@ fn main() -> Result<()> {
     //println!("{word_vec:?}");
 
 
-    Ok(())
+    Ok("random functionality coming later")
 }
