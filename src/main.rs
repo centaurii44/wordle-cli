@@ -10,7 +10,18 @@ fn main() -> Result<()> {
     words_file.read_to_string(&mut word_list)?;
 
     word_list = word_list.replace("\r", "");
-    let word_vec: Vec<&str> = word_list.split("\n").collect();
+
+    let mut word_vec: Vec<&str> = vec![];
+    for i in word_list.split_whitespace()
+    {
+        if i.len() == 5
+        {
+            word_vec.push(i);
+        }
+    }
+
+    //println!("{word_vec:?}");
+
 
     Ok(())
 }
