@@ -1,5 +1,5 @@
 use std::fs::File;
-use std::io::{Read, Result};
+use std::io::Read;
 use std::process::exit;
 
 use rand::seq::SliceRandom;
@@ -19,7 +19,7 @@ fn get_rand_word() -> String
         Err(_) => 
         {
             eprintln!("Could not open words.txt!");
-            std::process::exit(1);
+            exit(1);
         }
     };
 
@@ -27,7 +27,7 @@ fn get_rand_word() -> String
     if words_file.read_to_string(&mut word_list).is_err()
     {
         eprintln!("Could not read words.txt!");
-        std::process::exit(2);
+        exit(2);
     }
 
     word_list = word_list.replace("\r", "");
