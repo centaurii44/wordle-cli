@@ -1,7 +1,7 @@
 mod logic;
 
 use std::fs::File;
-use std::io::Read;
+use std::io::{stdin, stdout, Read, Write};
 use std::process::exit;
 
 use rand::seq::SliceRandom;
@@ -10,6 +10,20 @@ fn main()
 {
     let secret_word = get_rand_word();
     println!("{secret_word}");
+
+    print!("Enter your guess: ");
+    if stdout().flush().is_err()
+    {
+        eprintln!("Could not flush STDIN!");
+        exit(3);
+    }
+
+    let mut guess = String::new();
+    if stdin().read_line(&mut guess).is_err()
+    {
+        eprintln!("Could not read STDIN!");
+        exit(4);
+    }
 }
 
 fn get_rand_word() -> String
