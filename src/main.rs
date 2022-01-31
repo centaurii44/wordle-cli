@@ -1,3 +1,5 @@
+mod logic;
+
 use std::fs::File;
 use std::io::Read;
 use std::process::exit;
