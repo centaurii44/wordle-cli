@@ -29,6 +29,12 @@ fn main()
         }
 
         guess = guess.trim().to_string();
+        if guess.len() != 5
+        {
+            println!("Guess must be 5 characters.");
+            continue;
+        }
+
         let validity = logic::get_letter_validity(&guess, &secret_word);
 
         for i in validity
