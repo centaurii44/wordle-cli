@@ -42,6 +42,8 @@ fn main()
 
         remaining_tries -= 1;
     }
+
+    println!("The word was {secret_word}");
 }
 
 fn get_rand_word() -> String
