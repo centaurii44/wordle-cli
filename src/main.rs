@@ -31,6 +31,8 @@ fn main()
         guess = guess.trim().to_string();
         println!("{:?}", logic::get_letter_validity(&guess, &secret_word));
 
+        if logic::guess_is_correct(&guess, &secret_word) { break }
+
         remaining_tries -= 1;
     }
 }
