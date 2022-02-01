@@ -11,18 +11,27 @@ fn main()
     let secret_word = get_rand_word();
     println!("{secret_word}");
 
-    print!("Enter your guess: ");
-    if stdout().flush().is_err()
+    let mut remaining_tries = 5;
+    while remaining_tries != 0
     {
-        eprintln!("Could not flush STDIN!");
-        exit(3);
-    }
+        print!("Enter your guess: ");
+        if stdout().flush().is_err()
+        {
+            eprintln!("Could not flush STDIN!");
+            exit(3);
+        }
 
-    let mut guess = String::new();
-    if stdin().read_line(&mut guess).is_err()
-    {
-        eprintln!("Could not read STDIN!");
-        exit(4);
+        let mut guess = String::new();
+        if stdin().read_line(&mut guess).is_err()
+        {
+            eprintln!("Could not read STDIN!");
+            exit(4);
+        }
+
+        guess = guess.trim().to_string();
+        println!("{:?}", logic::get_letter_validity(&guess, &secret_word));
+
+        remaining_tries -= 1;
     }
 }
 
