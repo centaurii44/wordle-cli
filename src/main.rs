@@ -9,7 +9,7 @@ use rand::seq::SliceRandom;
 fn main()
 {
     let secret_word = get_rand_word();
-    println!("{secret_word}");
+    // println!("{secret_word}");
 
     let mut remaining_tries = 5;
     while remaining_tries != 0
