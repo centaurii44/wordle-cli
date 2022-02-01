@@ -1,4 +1,4 @@
-name: Rust-Windows-Latest
+name: Rust-MacOS-Latest
 
 on:
   push:
