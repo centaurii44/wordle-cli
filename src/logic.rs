@@ -1,5 +1,7 @@
 use colored::{ColoredString, Colorize};
 
+/* This was used before colored letters were added. Just commenting it out for historical reasons
+ * (if that makes sense)
 #[derive(Debug)]
 pub enum LetterPlacement
 {
@@ -7,7 +9,7 @@ pub enum LetterPlacement
     CorrectLetter,
     Incorrect,
 }
-
+*/
 pub fn get_letter_validity(guess: &String, word: &String) -> Vec<ColoredString>
 {
     let mut output: Vec<ColoredString> = vec![];
