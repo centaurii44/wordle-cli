@@ -1,3 +1,5 @@
+use colored::{ColoredString, Colorize};
+
 #[derive(Debug)]
 pub enum LetterPlacement
 {
@@ -6,9 +8,9 @@ pub enum LetterPlacement
     Incorrect,
 }
 
-pub fn get_letter_validity(guess: &String, word: &String) -> Vec<LetterPlacement>
+pub fn get_letter_validity(guess: &String, word: &String) -> Vec<ColoredString>
 {
-    let mut output: Vec<LetterPlacement> = vec![];
+    let mut output: Vec<ColoredString> = vec![];
 
     let guess_chars: Vec<char> = guess.chars().collect();
     let word_chars: Vec<char> = word.chars().collect();
@@ -17,17 +19,17 @@ pub fn get_letter_validity(guess: &String, word: &String) -> Vec<LetterPlacement
     {
         if guess_chars[i] == word_chars[i]
         {
-            output.push(LetterPlacement::CorrectSpot);
+            output.push(guess_chars[i].to_string().green());
         }
 
         else if word_chars.contains(&guess_chars[i])
         {
-                output.push(LetterPlacement::CorrectLetter);
+                output.push(guess_chars[i].to_string().yellow());
         }
 
         else
         {
-            output.push(LetterPlacement::Incorrect);
+            output.push(guess_chars[i].to_string().red());
         }
     }
 

@@ -29,7 +29,14 @@ fn main()
         }
 
         guess = guess.trim().to_string();
-        println!("{:?}", logic::get_letter_validity(&guess, &secret_word));
+        let validity = logic::get_letter_validity(&guess, &secret_word);
+
+        for i in validity
+        {
+            print!("{}", i);
+        }
+
+        println!("");
 
         if logic::guess_is_correct(&guess, &secret_word) { break }
 
