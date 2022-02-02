@@ -27,7 +27,7 @@ pub fn get_words() -> String
     word_list
 }
 
-pub fn get_rand_word() -> String
+pub fn get_rand_word(len: usize) -> String
 {
     let mut word_list = get_words();
     word_list = word_list.replace("\r", "");
@@ -35,7 +35,7 @@ pub fn get_rand_word() -> String
     let mut word_vec: Vec<&str> = vec![];
     for i in word_list.split_whitespace()
     {
-        if i.len() == 5
+        if i.len() == len
         {
             word_vec.push(i);
         }

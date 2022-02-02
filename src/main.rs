@@ -6,7 +6,26 @@ use std::process::exit;
 
 fn main()
 {
-    let secret_word = words::get_rand_word();
+    print!("Enter the word length: ");
+    if stdout().flush().is_err()
+    {
+        eprintln!("Could not flush STDIN!");
+        exit(3);
+    }
+
+    let mut word_len_str = String::new();
+    if stdin().read_line(&mut word_len_str).is_err()
+    {
+        eprintln!("Could not read STDIN!");
+        exit(4);
+    }
+
+    let word_len: usize = word_len_str
+        .trim()
+        .parse()
+        .unwrap_or(5);
+
+    let secret_word = words::get_rand_word(word_len);
     // println!("{secret_word}");
 
     let mut remaining_tries = 5;
@@ -27,13 +46,13 @@ fn main()
         }
 
         guess = guess.trim().to_string();
-        if guess.len() != 5
+        if guess.len() != word_len
         {
-            println!("Guess must be 5 characters.");
+            println!("Guess must be {word_len} characters.");
             continue;
         }
 
-        let validity = logic::get_letter_validity(&guess, &secret_word);
+        let validity = logic::get_letter_validity(&guess, &secret_word, &word_len);
 
         for i in validity
         {
