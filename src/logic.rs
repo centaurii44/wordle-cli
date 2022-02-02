@@ -26,7 +26,7 @@ pub fn get_letter_validity(guess: &String, word: &String) -> Vec<ColoredString>
 
         else if word_chars.contains(&guess_chars[i])
         {
-                output.push(guess_chars[i].to_string().yellow());
+            output.push(guess_chars[i].to_string().yellow());
         }
 
         else
