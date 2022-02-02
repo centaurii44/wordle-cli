@@ -4,7 +4,7 @@ use std::process::exit;
 
 use rand::seq::SliceRandom;
 
-pub fn get_words() -> String
+fn get_words() -> String
 {
     let words_path = "words.txt";
     let mut words_file = match File::open(words_path)
