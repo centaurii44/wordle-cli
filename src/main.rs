@@ -1,8 +1,7 @@
 mod logic;
 mod words;
 
-use std::fs::File;
-use std::io::{stdin, stdout, Read, Write};
+use std::io::{stdin, stdout, Write};
 use std::process::exit;
 
 fn main()
