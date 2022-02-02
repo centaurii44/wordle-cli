@@ -52,6 +52,12 @@ fn main()
             continue;
         }
 
+        if !words::word_is_valid(&guess)
+        {
+            println!("Please enter an actual word.");
+            continue;
+        }
+
         let validity = logic::get_letter_validity(&guess, &secret_word, &word_len);
 
         for i in validity

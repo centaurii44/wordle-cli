@@ -44,3 +44,11 @@ pub fn get_rand_word(len: usize) -> String
     let secret_word = word_vec.choose(&mut rand::thread_rng());
     secret_word.unwrap().to_string()
 }
+
+pub fn word_is_valid(word: &String) -> bool
+{
+    let words = get_words();
+    let word_vec: Vec<&str> = words.split_whitespace().collect();
+
+    word_vec.contains(&word.as_str())
+}
