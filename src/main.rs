@@ -45,6 +45,7 @@ fn main()
         if logic::guess_is_correct(&guess, &secret_word) { break }
 
         remaining_tries -= 1;
+        println!("You have {remaining_tries} guesses left.");
     }
 
     println!("The word was {secret_word}");
