@@ -6,6 +6,8 @@ use std::process::exit;
 
 fn main()
 {
+    let mut won: bool = false;
+
     print!("Enter the word length: ");
     if stdout().flush().is_err()
     {
@@ -67,11 +69,18 @@ fn main()
 
         println!("");
 
-        if logic::guess_is_correct(&guess, &secret_word) { break }
+        if logic::guess_is_correct(&guess, &secret_word) 
+        { 
+            won = true;
+            break;
+        }
 
         remaining_tries -= 1;
         println!("You have {remaining_tries} guesses left.");
     }
 
-    println!("The word was {secret_word}");
+    if won == false 
+    {
+        println!("The word was {secret_word}");
+    }
 }
