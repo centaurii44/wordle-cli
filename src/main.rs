@@ -67,8 +67,6 @@ fn main()
             print!("{}", i);
         }
 
-        println!("");
-
         if logic::guess_is_correct(&guess, &secret_word) 
         { 
             won = true;
@@ -76,7 +74,7 @@ fn main()
         }
 
         remaining_tries -= 1;
-        println!("You have {remaining_tries} guesses left.");
+        println!("\nYou have {remaining_tries} guesses left.");
     }
 
     if won == false 
