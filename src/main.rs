@@ -31,7 +31,7 @@ fn main()
     let mut remaining_tries = 5;
     while remaining_tries != 0
     {
-        print!("Enter your guess: ");
+        print!("\nEnter your guess: ");
         if stdout().flush().is_err()
         {
             eprintln!("Could not flush STDIN!");
